@@ -1,0 +1,9 @@
+#!/bin/bash
+LABID=$1
+if [ $# -eq 1 ]
+then
+  rm /u/u3/cs503/labs/13fall/grades/*/$LABID.rpt
+  for file in grading_reports/*; do uid=$(basename $file); ./rlsrpt.sh $uid $LABID grading_reports/ /u/u3/cs503/labs/13fall/grades/; done
+else
+  echo "need parameter: lab id. e.g. lab1, lab2...."
+fi
